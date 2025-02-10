@@ -1,1 +1,165 @@
+@import "../../../utils/styles/variables.scss";
+@import "../../../utils/styles/mixins.scss";
+
+.singpass-modal {
+    background: $white;
+    width: 600px;
+    margin: auto;
+    height: 80%;
+    text-align: center;
+    border-radius: 20px;
+
+    &.auth {
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // width: 80%;
+        border-radius: 20px;
+        width: 600px;
+    }
+
+    .singpass-model__auth {
+
+        .singpass-model__question {
+            font-size: 18px;
+            padding-bottom: 30px;
+        }
+        .singpass-model__btn {
+            display: flex;
+            width: 80%;
+            margin: auto;
+
+            button {
+                @include font-size(16);
+                min-height: 40px;
+                width: calc(100%);
+                padding: 5px 10px;
+                background-color: $sing_pass_red;
+                border: none;
+                color: $white;
+                @include border-radius(5px);
+                
+                cursor: pointer;
+
+                &:first-child {
+                    margin-right: 10px;
+                    background-color: transparent;
+                    border: 1px solid $sing_pass_red;
+                    color: $sing_pass_red;
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
+
+                &:hover {
+                    background-color: #CF0B15;
+                    @include box-shadow((0px 3px 1px -2px rgba(225, 31, 38, 0.2), 0px 2px 2px 0px rgba(225, 31, 38, 0.14), 0px 1px 5px 0px rgba(225, 31, 38, 0.12)));
+                }
+            }
+        }
+    }
+
+    .singpass-modal__head {
+        display: flex;
+        background-color: $sing_pass_red;
+        color: $white;
+        padding: 15px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+    .singpass-modal__body {
+        position: absolute;
+        display: flex;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        align-items: center;
+        justify-content: center;
+        width: 300px;
+        margin: auto;
+
+        form {
+            width: 100%;
+            .singpass-modal__header {
+                @include font-size(20);
+                text-align: left;
+            }
+            .singpass-modal__form-group {
+                padding-top: 15px;
+                & > * {
+                    display: block;
+                    text-align: left;
+                    width: 100%;
+                }
+
+                input {
+                    display: block;
+                    margin-top: 15px;
+                    @include dimention($width: calc(100% - 22px), $height: 30px);
+                    padding: 5px 10px;
+                    border: 1px solid $gray52;
+                    @include border-radius(5px);
+                    @include font-size(16);
+                    outline: none;
+                }
+                .singpass-modal__submit {
+                    button {
+                        @include font-size(16);
+                        font-weight: 600;
+                        margin-top: 20px;
+                        min-height: 40px;
+                        width: calc(100%);
+                        padding: 5px 10px;
+                        background-color: $sing_pass_red;
+                        border: none;
+                        color: $white;
+                        @include border-radius(5px);
+                        @include box-shadow(
+                            (
+                                0px 3px 1px -2px rgb(0 0 0 / 20%),
+                                0px 2px 2px 0px rgb(0 0 0 / 14%),
+                                0px 1px 5px 0px rgb(0 0 0 / 12%)
+                            )
+                        );
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: #CF0B15;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .singpass-modal {
+        width: 100%;
+        min-width: 320px;
+        height: 100%;
+        border-radius: 0;
+
+        &.auth {
+            width: 80%;
+        }
+
+        .singpass-modal__head {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+        .singpass-modal__body {
+            position: absolute;
+            display: flex;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
 

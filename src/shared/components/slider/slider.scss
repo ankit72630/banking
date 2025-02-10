@@ -1,1 +1,20 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+
+.rc-slider-container {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.rc-slider-track {
+    height: 5px;
+    background-color: $celtic_blue;
+}
+
+.rc-slider-handle {
+    width: 25px;
+    height: 25px;
+    opacity: 1;
+    margin-top: -10px;
+}
 

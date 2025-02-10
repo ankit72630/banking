@@ -1,1 +1,47 @@
+@use 'sass:math';
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin pop-up($width,$height,$background){
+    width: $width;
+    height: $height;
+    background: $background;
+}
+@mixin border-radius($value) {
+    -moz-border-radius: $value;
+    -webkit-border-radius: $value;
+    -ms-border-radius: $value;
+    -o-border-radius: $value;
+    -khtml-border-radius: $value;
+    border-radius: $value;
+}
+@mixin box-shadow($value) {
+    -webkit-box-shadow: $value;
+    -moz-box-shadow: $value;
+    box-shadow: $value;
+}
+@mixin dimention($width:0, $height:0) {
+    width: $width;
+    height: $height;
+}
+
+@mixin background($imgpath,$repeat: no-repeat,$size,$display,$position,$right,$top) {
+    background: {image: url($imgpath); repeat: $repeat; size: $size;}
+    display:$display;
+    position:$position;
+    right:$right;
+    top:$top;
+}
+@mixin font-size($font-size) {
+    font-size: math.div($font-size, 16) * 1rem;
+}
+
 

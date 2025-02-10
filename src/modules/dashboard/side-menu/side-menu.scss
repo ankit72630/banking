@@ -1,1 +1,49 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+.leftmenu {
+    @include font-size(14);
+    width: 200px;
+    > div {
+        margin-bottom: 20px;
+        line-height: 19px;
+        cursor: pointer;
+
+        span {
+            margin-left: 10px;
+            text-decoration: none;
+            color: $eerie_black;
+            padding-left: 10px;
+        }
+
+        &::before {
+            content: "";
+            background-image: url("../../../assets/_images/menu-black-circle.png");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+        }
+        &.current__stage__icon {
+            &:before {
+                background-image: url("../../../assets/_images/menu-circle.png");
+                width: 15px;
+                height: 16px;
+            }
+        }
+        &.stage__completed {
+            &:before {
+                background-image: url("../../../assets/_images/menu-tick.png");
+            }
+        }
+    }
+}
+.current__stage__icon ~ .stage__completed {
+    pointer-events: none;
+
+    &::before {
+        background-image: url("../../../assets/_images/menu-black-circle.png") !important;
+    }
+}
 

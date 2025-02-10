@@ -1,1 +1,16 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+.left-menu {
+    .container {
+        .logo-background {
+            .container__logo {
+                @include background('../../../assets/_images/application-logo.png',no-repeat,'','','','','');
+                @include dimention(140px, 55px);
+                background-position: center;
+                margin: auto 0;
+                padding: 20px;
+            }
+        }
+    }
+}
 

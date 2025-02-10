@@ -1,1 +1,54 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+.number{
+&.text {
+    position: relative;
+        color: $dark_charcoal;
+        label {
+            @include font-size(14);
+            display: block;
+            margin-bottom: 10px;
+        }
+        input {
+            font-family: $SC_Prosper_Sans_Medium;
+            font-size: 16px;
+            border-radius: 6px;
+            width: calc(100% - 22px);
+            height: 42px;
+            outline: none;
+            padding: 0 10px;
+            border: 1px solid $gray-disabled;
+
+            &:disabled {
+                padding: 0;
+                height: auto;
+                background: transparent;
+                color: $eerie_black;
+                -webkit-text-fill-color: $eerie_black;
+                opacity: 1;
+                border: 0;
+            }
+            &:active,
+            &:focus {
+                border: 1px solid $celtic_blue;
+            }
+            &:has(+ .error-msg) {
+                border: 1px solid $lava;
+            }
+        }
+        .postal_code{
+            &.circle-spinner {
+                background-image: url("../../../assets/_images/circle_spinner.png");
+                width: 39px;
+                height: 39px;
+                background-repeat: no-repeat;
+                background-position: center;
+                margin: auto;
+                position: absolute;
+                display: inline-block;
+                right: 0;
+            }
+        }
+    }
+}
 

@@ -1,1 +1,67 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+
+.lottie {
+    background: rgba(0, 0, 0, 0.8) !important;
+    font-family: $SC_Prosper_Sans_Regular;
+    position: fixed;
+    display: flex;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 40px;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    @include font-size(16);
+    color: $dark_charcoal;
+
+    &.opacity {
+        background: rgba(0, 0, 0, 1) !important;
+    }
+
+    .lottie__container {
+        position: fixed;
+        margin: 0 15px 40px 15px;
+        background: $white_smoke;
+        padding: 0 32px 32px;
+        border-radius: 30px;
+        bottom: 0px;
+        width: calc(100% - 94px);
+
+        .lf-player-container {
+            width: 200px;
+            height: 200px;
+            margin: auto;
+        }
+        .lottie__body {
+            text-align: center;
+
+            .lottie__text {
+                font-weight: bold;
+                @include font-size(18);
+            }
+            .lottie__footer {
+                margin-top: 40px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .lottie {
+        .lottie__container {
+            width: 350px;
+            height: 350px;
+            margin: auto;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            .lottie__body {
+                margin-top: 32px;
+            }
+        }
+    }
+}
 

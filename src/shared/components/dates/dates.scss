@@ -1,1 +1,91 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+.date {
+    label {
+        margin-bottom: 10px;
+        display: block;
+        @include font-size(14);
+    }
+    .date__inputs {
+        display: flex;
+        position: relative;
+
+        &:before {
+            content: "";
+            @include background(
+                "../../../assets/_images/calendar.png",
+                no-repeat,
+                100%,
+                none,
+                absolute,
+                0,
+                50%
+            );
+            @include dimention(16px, 16px);
+            transform: translateY(-50%);
+            + {
+                input:disabled {
+                    display: none;
+                }
+            }
+            display: none;
+        }
+        > input {
+            font-family: $SC_Prosper_Sans_Medium;
+            @include font-size(16);
+            border-radius: 6px;
+            width: calc(100% - 20px);
+            height: 42px;
+            outline: none;
+            border: none;
+            padding: 0 10px;
+            margin-right: 20px;
+            &:disabled {
+                height: auto;
+                background: transparent;
+                color: $eerie_black;
+                border-right: 0;
+                border-radius: 0;
+                -webkit-text-fill-color: $eerie_black;
+                opacity: 1;
+                width: 25px;
+                margin: 0;
+                padding-left: 2px;
+                padding-right: 2px;
+                text-align: center;
+                + {
+                    span.date__seperator {
+                        width: 2px;
+                        background: $dark;
+                        rotate: 25deg;
+                    }
+                }
+                &:last-child {
+                    width: 40px;
+                }
+            }
+            &:last-child {
+                margin-right: 0;
+                border-right: 0;
+            }
+            &::-webkit-inner-spin-button,
+            ::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                margin: 0;
+            }
+        }
+        &:has(input:disabled) {
+            max-width: 345px;
+            -webkit-text-fill-color: $eerie_black;
+            opacity: 1;
+        }
+    }
+    .date__inputs--disabled {
+        &:before {
+            display: none;
+        }
+    }
+}
 

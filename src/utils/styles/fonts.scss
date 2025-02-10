@@ -1,1 +1,31 @@
-
+@font-face {
+    font-family: "SC Prosper Sans Medium";
+    font-weight: 500;
+    font-style: normal;
+    src: url("../../assets/_fonts/SCProsperSans-Medium.otf"), url("../../assets/_fonts/SCProsperSans-Medium.ttf") format("truetype");
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "SC Prosper Sans Regular";
+    font-weight: 400;
+    font-style: normal;
+    src: url("../../assets/_fonts/SCProsperSans-Regular.otf"), url("../../assets/_fonts/SCProsperSans-Regular.ttf") format("truetype");
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "SC Prosper Sans Bold";
+    font-weight: 700;
+    font-style: normal;
+    src: url("../../assets/_fonts/SCProsperSans-Bold.otf"), url("../../assets/_fonts/SCProsperSans-Bold.ttf") format("truetype");
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "SC Prosper Sans Light";
+    font-weight: 300;
+    font-style: normal;
+    src: url("../../assets/_fonts/SCProsperSans-Light.otf"), url("../../assets/_fonts/SCProsperSans-Light.ttf") format("truetype");
+    font-display: swap;
+  }

@@ -1,1 +1,21 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+
+.other-info{
+    .other-info__inner{
+        position: relative;
+        cursor: pointer;
+        padding: 12px;
+        border: 1px solid $gray-disabled;
+        border-radius: 6px;
+        
+        .chevron{
+            @include background('../../../assets/_images/vector-black.png',no-repeat,initial,inline-block,absolute,12px,50%);
+            background-position: center;
+            @include dimention(24px, 24px);
+            transform: translateY(-50%);
+            margin-left: 12px;
+        }
+    }
+}
 

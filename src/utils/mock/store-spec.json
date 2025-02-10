@@ -1,1 +1,65 @@
+{
+  "loader": {
+    "isFetching": {}
+  },
+  "stages": {
+    "stages": [
+      {
+        "stageId": "ssf-1",
+        "stageInfo": {
+          "application": {
+            "source_system_name": 3
+          }
+        }
+      }
+    ],
+    "userInput": {},
+    "conditionalFields": {
+      "newFields": {},
+      "removedFields": {}
+    },
+    "myinfoMissingFields": null
+  },
+  "auth": {
+    "sessionUid": ""
+  },
+  "error": {
+    "errors": []
+  },
+  "lov": {
+    "lov": []
+  },
+  "valueUpdate": {
+    "value": null
+  },
+  "fielderror": { 
+    "error": {},
+    "mandatoryFields": []
+  },
+  "logout": null,
+  "urlParam": {
+    "urlParams": "#/onboarding/myinfo-callback?code=6fcb1408-d8fb-4b2c-a9fc-9a2c4e5afe17&isMyInfoVirtual=true&isMyInfoVirtualNRIC=S4020661B&products=153&campaign=CA001",
+    "myInfo": false,
+    "products": [
+      {
+        "campaign": "CA001",
+        "name": "Wealth $aver",
+        "product_category": "CA",
+        "product_category_name": "Current Account",
+        "product_type": "153",
+        "company_category": "NA",
+        "product_sequence_number": "1",
+        "product_description": "Enjoy high interest with Wealth $aver"
+      }
+    ]
+  },
+  "validation" : {
+    "validNRIC" : "S4039383H",
+    "invalidNRIC" : "S4039383K"
+  },
+  "authorize": {
+    "authorize": null
+  }
+}
+
 

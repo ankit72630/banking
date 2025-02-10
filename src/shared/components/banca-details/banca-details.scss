@@ -1,1 +1,97 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+
+.banca__details {
+  color: $dim_gray;
+  > div {
+    margin-top: 15px;
+  }
+  .banca__body {
+    background: $white;
+    padding: 15px;
+    border: 1px solid $white_smoke;
+    border-radius: 6px;
+
+    .banca__points {
+      margin-bottom: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .banca__points__left {
+        position: relative;
+        padding-left: 30px;
+        @include font-size(16);
+        color: $dark;
+        font-weight: 500;
+
+        .banca__point__icon {
+          position: absolute;
+          width: 15px;
+          left: 0;
+        }
+      }
+      .banca__points__right {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: right;
+
+        .banca__dollar {
+          width: 50%;
+          @include font-size(14);
+          color: $dark;
+          font-weight: 500;
+        }
+        .banca__month {
+          width: 50%;
+          @include font-size(12);
+          color: $dark;
+          font-weight: 400;
+        }
+        .banca__gst {
+          width: 100%;
+          @include font-size(12);
+          color: $dim_gray;
+          font-weight: 400;
+        }
+      }
+    }
+    .banca__list {
+      margin-bottom: 15px;
+      @include font-size(14);
+    }
+    .banca__benefits {
+      .banca__benefits__header {
+        @include font-size(16);
+      }
+      .banca__info {
+        @include font-size(14);
+
+        ul {
+          padding-left: 30px;
+          li {
+            a {
+              color: $azure;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+      .banca__radiobutton {
+        .banca__radio__label {
+          .errorLabel {
+            margin-bottom: 10px;
+          }
+        }
+        .radioWithLabel {
+          .body__app-desc {
+            label {
+              margin-bottom: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 

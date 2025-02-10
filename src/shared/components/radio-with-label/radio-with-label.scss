@@ -1,1 +1,121 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+
+.radioWithLabel {
+    color: $dark_charcoal;
+    
+    .radio__header {
+        position: relative;
+        padding-right: 20px;
+        .info-tooltip {
+            &:before {
+                content: "";
+                background-color: transparent;
+                @include background(
+                    "../../../assets/_images/blue-ques.png",
+                    no-repeat,
+                    100%,
+                    inline-block,
+                    absolute,
+                    0,
+                    50%
+                );
+                @include dimention(16px, 16px);
+                transform: translateY(-50%)
+            }
+        }        
+        label {
+            @include font-size(14);
+            display: block;
+            margin-bottom: 10px;
+            border: 0;
+            padding: 0;
+            height: auto;
+            background: transparent;
+        }
+    }
+
+    div {
+        > label {
+            display: flex !important;
+            align-items: center;
+            padding: 12px;
+            border-radius: 6px;
+            background: $white;
+            border: 1px solid $gray-disabled;
+            input[type="radio"] {
+                -webkit-appearance: none;
+                width: 24px;
+                height: 24px;
+                border: 2px solid $davys_gray;
+                border-radius: 50%;
+                margin: 0 10px 0px 0px;
+                background: $white;
+                &:disabled {
+                    border: 2px solid $nobel;
+                }
+                &:checked {
+                    border: 2px solid $celtic_blue;
+                }
+                &:before {
+                    content: "";
+                    display: block;
+                    width: 12px;
+                    height: 12px;
+                    margin: 4px auto;
+                    border-radius: 50%;
+                }
+                &:checked::before {
+                    background: $celtic_blue;
+                }
+            }
+            span {
+                color: inherit;
+                width: 90%;
+            }
+        }
+        .phoenix_Limit_porting{
+            display: flex;
+            font-size: 14px;
+        }
+        .phoenix_Limit_porting-logo {
+            content: url("../../../assets/_images/credit-limit-logo.png")!important;
+            padding-left: 2%;
+            float: left;
+            width: 15%;
+        }
+        .phoenix_Limit_porting{
+            float: right;
+         
+        }
+        .Phoenix_Limit_porting_first_label {
+            font-family: $SC_Prosper_Sans_Bold;
+            font-size: 14px;
+        }
+        .Phoenix_Limit_porting_second_label {
+            font-family: $SC_Prosper_Sans_Regular;
+            font-size: 14px;
+        }
+    }
+    .tool-tip__icon{
+        padding-right: 15px;
+        float: right;
+        
+        .tool-tip{
+            @include background('../../../assets/_images/Question.png',no-repeat,100%,inline-block,'','','');
+            @include dimention(16px, 16px);
+        }
+    }
+}
+label:has(input:disabled) {
+    color: $nobel !important;
+}
+.limit-note{
+    margin-left : 5px;
+    font-weight : 400;
+    font-size : 12px;
+    line-height: 15.96px;
+    color : $dim_gray;
+}
+
 

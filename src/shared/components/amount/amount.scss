@@ -1,1 +1,29 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+.text {
+    color: $dark_charcoal;
+    label {
+        font-size: 14px;
+        display: block;
+        margin-bottom: 10px;
+    }
+    input {
+        font-family: $SC_Prosper_Sans_Medium;
+        font-size: 16px;
+        border-radius: 6px;
+        width: calc(100% - 20px);
+        height: 42px;
+        outline: none;
+        border: 1px solid $gray-disabled;
+        padding: 0 10px;
+
+        &:active,
+        &:focus {
+            border: 1px solid $celtic_blue;
+        }
+        &:has(+ .error-msg) {
+            border: 1px solid $lava;
+        }
+    }
+}
 

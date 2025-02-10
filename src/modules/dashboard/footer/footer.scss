@@ -1,1 +1,87 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+.footer {
+    height: 97px;
+    background-color: $white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+
+    button.continue {
+        font-family: $SC_Prosper_Sans_Medium;
+        background-color: $celtic_blue;
+        @include dimention(523px, 40px);
+        border-radius: 27px;
+        padding: 0px 10px;
+        justify-content: center;
+        border: none;
+        color: $white;
+        @include font-size(18);
+        font-weight: 500;
+        line-height: normal;
+        cursor: pointer;
+
+        &.form-invalid {
+            background-color: $gray-disabled;
+        }
+        &:focus-visible {
+            outline: none;
+        }
+
+        .circle-spinner {
+            background-image: url("../../../assets/_images/circle_spinner.png");
+            width: 39px;
+            height: 39px;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: auto;
+        }
+    }
+
+    div.back {
+        font-family: $SC_Prosper_Sans_Medium;
+        color: $celtic_blue;
+        border: none;
+        background-color: $white;
+        font-weight: 500;
+        @include font-size(18);
+        line-height: normal;
+        padding: 0 10px 0 24px;
+        position: relative;
+        margin-right: 20px;
+        cursor: pointer;
+
+        &::before {
+            content: "";
+            background-color: transparent;
+            @include background(
+                "../../../assets/_images/left-icon.png",
+                no-repeat,
+                100%,
+                inline-block,
+                absolute,
+                "",
+                4px
+            );
+            @include dimention(8px, 15px);
+            left: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .footer {
+        height: 70px;
+        button.continue {
+            @include font-size(16);
+            line-height: 21px;
+        }
+        div.back {
+            @include font-size(16);
+            line-height: 21px;
+        }
+    }
+}
 

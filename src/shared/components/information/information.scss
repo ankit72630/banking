@@ -1,1 +1,38 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+
+.info-top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 10px !important;
+
+    .info__icon {
+        @include background("../../../assets/_images/Info-circle.png", no-repeat, 100%, inline-block, "", "", "");
+        @include dimention(16px, 16px);
+        margin-right: 5px;
+    }
+
+    .info {
+        color: $dim_gray;
+        @include font-size(12);
+        line-height: 16px;
+        padding-right: 10px;
+    }
+    .tool-tip__icon {
+        padding-right: 15px;
+
+        .tool-tip {
+            @include background("../../../assets/_images/Question.png", no-repeat, 100%, inline-block, "", "", "");
+            @include dimention(16px, 16px);
+        }
+    }
+}
+.show-info {
+    display: "block";
+}
+
+.hide-info {
+    display: none;
+}
 

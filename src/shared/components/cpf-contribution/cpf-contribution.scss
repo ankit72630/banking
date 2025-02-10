@@ -1,1 +1,51 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
 
+.cpf__container{
+    .cpf__label{
+        margin-bottom: 10px;
+
+        label {
+            @include font-size(14);
+            display: block;
+            line-height: 19px;
+        }
+    }
+    .cpf__table{
+        table{
+            background: $white;
+            padding: 20px;
+            margin-bottom: 10px;
+            text-align: left;
+            tr{
+                &:first-child{
+                    td{
+                        padding-bottom: 30px;
+                    }
+                }
+                td{
+                    @include font-size(12);
+                    line-height: 16px;
+                    color: $dim_gray;
+                    font-weight: 500;
+                    width: 50%;
+                    span{
+                        @include font-size(16);
+                        line-height: 21px;
+                        color: $dim_gray;
+                        font-weight: 500;
+                        display: block;
+                        margin-top: 7px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 767px) {
+    .cpf__container{
+        padding: 0 15px;
+    }
+}

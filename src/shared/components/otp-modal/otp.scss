@@ -1,1 +1,211 @@
+@import "../../../utils/styles/variables.scss";
 
+.otp {
+  font-family: $SC_Prosper_Sans_Regular;
+  min-height: 100vh;
+  background: $eerie_black;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  .otp__content {
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px;
+    border: 1px solid $medium-grey;
+    border-radius: 26px;
+    position: relative;
+    background: $white_smoke;
+
+    .otp__container {
+      width: 336px;
+      margin: auto;
+    }
+
+    .otp__exits {
+      font-size: 16px;
+      width: 335px;
+      margin: auto;
+
+      .otp__expried-click {
+        font-size: 14px;
+        line-height: 20px;
+        color: $celtic_blue;
+        margin-top: 20px;
+
+        span {
+          border-bottom: 1px dashed $celtic_blue;
+
+          a {
+            text-decoration: none;
+            color: inherit;
+          }
+        }
+      }
+    }
+
+    .otp__expired {
+      font-size: 16px;
+      width: 335px;
+      margin: auto;
+
+      .otp__expired-otp {
+        color: $lava;
+        margin-bottom: 10px;
+      }
+
+      .otp__expired-new {
+        margin-top: 50px;
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      .otp__expired-btn {
+        font-size: 14px;
+        line-height: 20px;
+        color: $celtic_blue;
+        margin-bottom: 30px;
+
+        span {
+          border-bottom: 1px dashed $celtic_blue;
+        }
+      }
+
+      .otp__expired-ccs {
+        font-size: 14px;
+        line-height: 20px;
+        color: $celtic_blue;
+        margin-top: 5px;
+
+        span {
+          border-bottom: 1px dashed $celtic_blue;
+        }
+      }
+    }
+
+    .otp__logo {
+      background-image: url("../../../assets/_images/otp-lock.png");
+      width: 101px;
+      height: 100px;
+      margin: 30px auto 20px;
+    }
+  }
+
+
+  .otp__desc {
+    .otp__info {
+      font-size: 18px;
+      line-height: 24px;
+    }
+    .otp__fields {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      align-items: center;
+    }
+
+    .inputOtp {
+      padding: 0px 0px !important;
+      width: 35px !important;
+      font-size: 2em;
+    }
+  }
+
+  .otp__invalid-otp {
+    margin-top: 20px;
+    color: $lava;
+  }
+  .otp__generated_fadeout {
+    margin-top: 20px;
+    color: $accent_green;
+    opacity: 0;
+    -webkit-animation: fadeout 8s;
+    /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadeout 8s;
+    /* Firefox < 16 */
+    -ms-animation: fadeout 8s;
+    /* Internet Explorer */
+    -o-animation: fadeout 8s;
+    /* Opera < 12.1 */
+    animation: fadeout 8s;
+  }
+
+  @keyframes fadeout {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  .otp__resend {
+    font-size: 14px;
+    margin-top: 30px;
+    color: $celtic_blue;
+    border: 0px;
+    background: inherit;
+
+    &:disabled {
+      color: $raven;
+
+      span {
+        border-bottom: 0px solid;
+      }
+    }
+
+    span {
+      border-bottom: 1px dashed $celtic_blue;
+    }
+  }
+}
+
+.otp_input_box input {
+  padding: 0px 0px !important;
+  width: 7px !important;
+}
+
+.otp-spinner {
+  font-family: $SC_Prosper_Sans_Regular;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 99;
+  background-color: $white_smoke;
+  font-size: 16px;
+  color: $dark_charcoal;
+}
+
+@media only screen and (max-width: 767px) {
+  .otp {
+    background-color: inherit;
+
+    .otp__content {
+      border: 0px solid;
+      width: calc(100% - 30px);
+      border-radius: 0;
+
+      .close {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+      }
+      .otp__container {
+        width: 280px;
+
+        .otp__desc {
+          .otp__info {
+            font-size: 16px;
+            line-height: 21px;
+          }
+        }
+      }
+    }
+  }
+}

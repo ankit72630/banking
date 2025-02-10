@@ -1,1 +1,159 @@
+parameters:
+  - name: releaseId
+    type: string
+    displayName: WorkItem ID
+    default: 1234567890
+  - name: targetLoc
+    type: string
+    displayName: targetLoc
+    default: ""
+  - name: Task_Number_NonProd
+    displayName: Task Number(Non Prod)
+    type: string
+    default: ""
+  - name: Task_Number_Prod
+    displayName: Task Number(Prod)
+    type: string
+    default: ""
+  - name: itamId
+    displayName: ITAM ID
+    type: string
+    default: 50540
+trigger: none
+pool: sc-linux
+resources:
+  repositories:
+    - repository: governed-templates
+      name: dj-core/governed-templates
+      ref: main
+      type: git
+variables:
+  - group: RundeckSecrets
+  - name: build1
+    value: uat
+  - name: build2
+    value: build2
+  - name: build3
+    value: build3
+  - group: "${{ parameters.itamId }}-NonProd"
+  - name: BUILD_NUMBER
+    value: $(Build.SourceBranchName)-$(Build.BuildNumber)
+  - name: country
+    value: sg
+  - name: FileName
+    value: rtob-ui-app-sg-1.0.0-$(BUILD_NUMBER).tgz 
+  - name: environment
+    value: ngf
+  - name: Artifactory_URL
+    value: "https://artifactory.global.standardchartered.com/artifactory/npm-sc-release_local_new/rtob-ui-app-sg/-/rtob-ui-app-sg-1.0.0-$(BUILD_NUMBER).tgz"
+extends:
+  template: governed-template/build-and-deploy.yml@governed-templates
+  parameters:
+    releaseId: "${{ parameters.releaseId }}"
+    ITAM: "${{ parameters.itamId }}"
+    buildStackName: node
+    buildStackParams:
+      pool: sc-linux
+      uiNpmApp: true
+      uiNpmBuildDir: build
+      npmTaskList:
+        - name: Run Build
+          task: "run build:all"
+        - name: Run Test
+          task: "run ci:tests"
+      useYarn: false
+      uiYarnApp: false
+      npmFilePath: /
+      sonarInclusions: /src/app/_modules/
+      sonarExclusions: "**/deploy/**,**/assets/**,**/modules/**,**/components/**,**/services/**,**/src/**,**/*.ts,**/*.tsx,**/*.yml,**/*.html"
+      packageVersion: 1.0.0
+    deployStackParams:
+      templateRepo: governed-templates
+    deployStackName: rundeck
+    deployEnvironments:
+      - name: dev
+        environment: dev
+        displayName: Dev
+        notifyUsers: |
+          selvamani.m@sc.com
+        pool: sc-linux
+        rundeck_job_details:
+          ado_user: "1573554"
+          rundeck_environment: production
+          rundeck_adgroup: SUZ1-APP-WEBSSPRD-NRTOB-PSS
+          rundeck_jobid: e3da1b29-d1b4-4ffc-bc17-3f7516e152dd
+          rundeck_project_key: NRTOB-RWB
+          rundeck_token: $(prodtoken)
+          rundeck_args: "-REMEDY_TICKET_NO ${{parameters.Task_Number_NonProd}} -Artifactory_URL
+            $(Artifactory_URL) -Environment $(environment) -Target_Loc ${{parameters.targetLoc}} -File_Name $(FileName)"
+      - name: qa
+        environment: qa
+        displayName: QA
+        dependsOn:
+          - dev
+        notifyUsers: |
+          selvamani.m@sc.com
+        pool: sc-linux
+        rundeck_job_details:
+          ado_user: "1573554"
+          rundeck_environment: production
+          rundeck_adgroup: SUZ1-APP-WEBSSPRD-NRTOB-PSS
+          rundeck_jobid: e3da1b29-d1b4-4ffc-bc17-3f7516e152dd
+          rundeck_project_key: NRTOB-RWB
+          rundeck_token: $(prodtoken)
+          rundeck_args: "-REMEDY_TICKET_NO ${{parameters.Task_Number_NonProd}} -Artifactory_URL
+            $(Artifactory_URL) -Environment $(environment) -Target_Loc ${{parameters.targetLoc}} -File_Name $(FileName)"
+      - name: staging
+        environment: staging
+        displayName: Staging
+        dependsOn:
+          - qa
+        notifyUsers: |
+          selvamani.m@sc.com
+        pool: sc-linux
+        rundeck_job_details:
+          ado_user: "1573554"
+          rundeck_environment: production
+          rundeck_adgroup: SUZ1-APP-WEBSSPRD-NRTOB-PSS
+          rundeck_jobid: e3da1b29-d1b4-4ffc-bc17-3f7516e152dd
+          rundeck_project_key: NRTOB-RWB
+          rundeck_token: $(prodtoken)
+          rundeck_args: "-REMEDY_TICKET_NO ${{parameters.Task_Number_NonProd}} -Artifactory_URL
+            $(Artifactory_URL) -Environment $(environment) -Target_Loc ${{parameters.targetLoc}} -File_Name $(FileName)"
+      - name: release_checks
+        environment: pre-release
+        displayName: Pre-Release
+        dependsOn:
+          - staging
+        notifyUsers: |
+          selvamani.m@sc.com
+        pool: "sc-linux"
+        qaStageName: qa
+
+      - name: release
+        environment: release
+        displayName: Release
+        dependsOn:
+          - release_checks
+        notifyUsers: |
+          selvamani.m@sc.com
+        pool: "sc-linux"
+
+      - name: prod
+        environment: production
+        displayName: production
+        dependsOn:
+          - release
+        notifyUsers: |
+          navulurisrinivasaravi.phanikumar@sc.com
+        pool: "sc-linux"
+        rundeck_job_details:
+          ado_user: "1573554"
+          rundeck_environment: "production"
+          rundeck_adgroup: "SUZ1-APP-WEBSSPRD-NRTOB-PSS"
+          rundeck_jobid: "713c74f0-fd67-4679-b151-65af18de6f5b"
+          rundeck_project_key: "NRTOB-RWB"
+          rundeck_token: $(prodtoken)
+          rundeck_args: "-REMEDY_TICKET_NO ${{parameters.Task_Number_Prod}} -Artifactory_URL
+            $(Artifactory_URL) -Target_Loc ${{parameters.targetLoc}} -File_Name $(FileName)"
 

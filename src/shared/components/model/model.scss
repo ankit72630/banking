@@ -1,1 +1,366 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+.popup {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0, 0.8);
+  z-index: 99;
+  margin-top: 0 !important;
 
+  .popup__container {
+    background: $white;
+    max-width: 355px;
+    min-width: 300px;
+    margin: auto;
+    height: auto;
+    max-height: 85%;
+    text-align: center;
+    border-radius: 32px;
+    border: 1px solid rgba(11, 19, 36, 0.08);
+
+    .app__ref {
+      @include font-size(14);
+      font-weight: bold;
+      color: $celtic_blue;
+      margin-bottom: 10px;
+    }
+    .popup__info {
+      font-family: $SC_Prosper_Sans_Regular;
+      @include font-size(14);
+      line-height: 20px;
+
+      .popup__info__head {
+        font-family: $SC_Prosper_Sans_Medium;
+        color: $dark;
+        font-weight: 500;
+        @include font-size(16);
+        line-height: 21px;
+      }
+
+      .popup__info__desc {
+        .model__content {
+          max-height: 300px;
+          overflow-y: scroll;
+          p {
+            padding: 20px 20px;
+            margin: 0;
+          }
+          a {
+            text-decoration: none;
+            color: $celtic_blue;
+          }
+          &::-webkit-scrollbar {
+            width: 3px;
+          }
+          &::-webkit-scrollbar-thumb {
+            background: $cloud;
+          }
+          .text {
+            border: none;
+            outline: none;
+            border-bottom: 1px solid $gray-disabled;
+            width: -webkit-fill-available;
+            @include font-size(15);
+            &:focus {
+              border-bottom: 1px solid $celtic_blue;
+            }
+          }
+          .postalCode{
+            display: flex;
+            .postalCodeText {
+              display: inline-block;
+              border: 1px solid;
+              border-radius: 6px;
+              padding: 0px 5px;
+              border-color: #CCCBCB;
+              margin: 0px;
+              height: 40px;
+              &:focus-visible {
+                border-color: #2772C7;
+                outline: 0;
+              }
+            }
+            .postalCodeTextButton {
+                border-radius: 27px;
+                padding: 0px 5px;
+                background-color: #2772C7;
+                margin:0 0 0 10px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                color: #FFFFFF;   
+                cursor: pointer;
+                .btnRate {
+                  display: inline-block;
+                  padding: 10px;
+               }
+            }
+          }
+        }
+        .postalcode_conti_btn {
+          @include font-size(15);
+          border-top: solid 1px $light_white;
+          margin: 25px 0 0;
+          padding: 20px 20px 0;
+          border-bottom-left-radius: 30px;
+          border-bottom-right-radius: 30px;
+          .btn {
+            color: $celtic_blue;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            display: inline-block;
+            &:hover {
+              color: $congress_blue;
+            }
+          }
+        }
+        .postal__code__btn {
+          @include font-size(15);
+          border-top: solid 1px $light_white;
+          margin: 25px 0 0;
+          padding: 20px;
+          border-bottom-left-radius: 30px;
+          border-bottom-right-radius: 30px;
+          .btn {
+            color: $celtic_blue;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            display: inline-block;
+            &:hover {
+              color: $congress_blue;
+            }
+          }
+        }
+        .postal_image_main{
+          width: 100%;
+          .postal_image{
+            background-image: url("../../../assets/_images/CashOne.svg") !important;
+            width: 180px;
+            margin-top: 30px;
+            background-size: 100%;
+            height: 80px;
+            background-repeat: no-repeat;
+            margin: 10px auto auto;
+          }
+        }
+        
+        .header_second{
+          text-align: center;
+        }
+        .ar__rate {
+          @include font-size(15);
+          font-weight: bold;
+          line-height: 25px;
+        }
+        .postal__error {
+          color: $lava;
+          text-align: left;
+          padding-top: 5px;
+        }
+      }
+    }
+
+    .popup-btn {
+      font-family: $SC_Prosper_Sans_Medium;
+      width: 100%;
+      font-weight: 500;
+      @include font-size(16);
+      line-height: 21px;
+      background-color: $white;
+      color: $eerie_black;
+      padding: 23px;
+      border: 0.3px solid $gainsboro;
+      border-bottom-left-radius: 32px;
+      border-bottom-right-radius: 32px;
+
+      a {
+        text-decoration: none;
+        color: $eerie_black;
+      }
+    }
+
+    .waring__icon {
+      width: 180px;
+      height: 160px;
+      margin: auto;
+      .popup__question {
+        @include background(
+          "../../../assets/_images/popup-question.svg",
+          no-repeat,
+          100%,
+          inline-block,
+          "",
+          "",
+          0
+        );
+        @include dimention(50px, 50px);
+      }
+      &:has(.popup__question) {
+        width: 50px !important;
+        height: 50px !important;
+        margin: 30px auto auto;
+      }
+    }
+    .referralcode-popup-icon{
+      width: 180px;
+      height: 160px;
+      margin: auto;
+          @include background(
+              "../../../assets/_images/referralcode-popup-icon.svg",
+              no-repeat,
+              100%,
+              inline-block,
+              "",
+              "",
+              0
+          );
+  }
+    .btn {
+      font-family: $SC_Prosper_Sans_Medium;
+      @include font-size(15);
+      border-top: solid 1px $light_white;
+      padding-top: 19px;
+      cursor: pointer;
+    }
+  }
+}
+.postal__code__popup {
+  .popup__container {
+    max-width: 370px;
+    .popup__info {
+      padding: 35px 35px;
+      .popup__info__desc {
+        .model__content {
+          text-align: left;
+          .ar__rate {
+            text-align: center;
+          }
+          p {
+            padding: 10px 0;
+          }
+        }
+      }
+    }
+  }
+}
+.tooltip-popup {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $dark;
+  z-index: 99;
+
+  .tooltip-popup-container1 {
+    background: $white;
+    margin: auto;
+    text-align: left;
+    border-radius: 32px;
+    position: relative;
+    max-width: 600px;
+
+    .tooltip-popup-info {
+      font-family: $SC_Prosper_Sans_Regular;
+      padding: 20px 0 30px 30px;
+      @include font-size(14);
+      line-height: 20px;
+      letter-spacing: normal;
+
+      .tooltip-popup-info__head {
+        font-family: $SC_Prosper_Sans_Regular;
+        font-weight: 400;
+        @include font-size(24);
+        line-height: 30px;
+        padding: 0 50px 20px 0;
+      }
+      .tooltip__popup__info__subhead {
+        @include font-size(16);
+        margin: 10px 0;
+      }
+
+      .tooltip-popup-info__desc {
+        max-height: 300px;
+        overflow-y: scroll;
+        padding-right: 30px;
+        > div {
+          margin-bottom: 20px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          &::marker {
+            unicode-bidi: isolate;
+            font-variant-numeric: tabular-nums;
+            text-transform: none;
+            text-indent: 0px !important;
+            text-align: start !important;
+            text-align-last: start !important;
+          }
+        }
+
+        .btn {
+          @include font-size(15);
+          border-top: solid 1px $light_white;
+          padding-top: 21px;
+        }
+        &::-webkit-scrollbar {
+          width: 6px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: $cloud;
+        }
+      }
+    }
+
+    .tooltip-popup-btn {
+      font-family: $SC_Prosper_Sans_Medium;
+      width: 100%;
+      font-weight: 500;
+      @include font-size(16);
+      line-height: 21px;
+      border: 0;
+      background-color: $white;
+      color: $eerie_black;
+      padding: 23px;
+      border-bottom-left-radius: 32px;
+      border-bottom-right-radius: 32px;
+      border: 0.3px solid $gainsboro;
+
+      a {
+        text-decoration: none;
+        color: $eerie_black;
+      }
+    }
+
+    .btn {
+      font-family: $SC_Prosper_Sans_Medium;
+      @include font-size(15);
+      border-top: solid 1px $light_white;
+      padding-top: 19px;
+      cursor: pointer;
+    }
+    .close-button {
+      position: absolute;
+      cursor: pointer;
+      @include dimention(24px, 24px);
+      right: 12px;
+      top: 12px;
+      background-image: url("../../../assets/_images/close-solid.png");
+      background-position: left top;
+      background-repeat: no-repeat;
+      background-color: transparent;
+    }
+  }
+}
+@media only screen and (max-width: 767px) {
+  .tooltip-popup {
+    padding: 0 10px;
+  }
+}

@@ -1,1 +1,28 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+
+.phoenix__Limit__porting{
+    display: flex;
+    font-size: 14px;
+
+    .phoenix__Limit__porting__logo {
+        content: url("../../../assets/_images/credit-limit-logo.png")!important;
+        padding-left: 2%;
+        float: left;
+        width: 15%;
+    }
+    .phoenix__Limit__porting__desc{
+        float: right;
+        .radio__offer__label {
+            font-family: $SC_Prosper_Sans_Bold;
+            font-size: 14px;
+            padding-top: 30px;
+            padding-bottom: 25px;
+        }
+        .radio__credit__limit__label {
+            font-family: $SC_Prosper_Sans_Regular;
+            font-size: 14px;
+        }
+    }
+}
 

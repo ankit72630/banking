@@ -1,1 +1,83 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+
+.tooltip {
+  position: relative;
+  span {
+    visibility: hidden;
+    width: 10em;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 9;
+    top: -1em;
+    left: 100%;
+    margin-left: 1em;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+  &:before {
+    border-color: rgba(204, 204, 204, 0);
+    border-top-color: #ccc;
+    border-width: 16px;
+    margin-right: -1px;
+    top: 100%;
+    right: 10px;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  &:after {
+    border-color: rgba(255, 255, 204, 0);
+    border-top-color: #ffc;
+    border-width: 15px;
+    margin-left: -15px;
+    top: 100%;
+    right: 10px;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+}
+.tooltipContainer {
+  position: absolute;
+  right: 0;
+  padding: 10px;
+  bottom: 100%;
+  transform: translateY(-10%);
+  @include font-size(12);
+  background-color: $ecru;
+  border-radius: 6px;
+  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
+  width: 50%;
+
+  &:after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      right: 8px;
+      border-width: 16px;
+      border-style: solid;
+      border-color: $ecru transparent transparent transparent;
+  }
+}
+@media only screen and (max-width: 767px) {
+      .tool-tip__icon {
+          .tooltipContainer {
+              margin: 0 10px;
+              &:after {
+                  right: 12px;
+              }
+          }
+      }
+}
 

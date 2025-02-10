@@ -1,1 +1,49 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+
+.funding-banner {
+  display: flex;
+  margin-left: -15px;
+  margin-bottom: 30px;
+
+  .funding-banner__banner {
+    background-color: $celtic_blue;
+    border: 1px solid $celtic_blue;
+    border-radius: 27px;
+    color: $white;
+    @include font-size(12);
+    line-height: 18px;
+    text-align: center;
+    margin-top: 6px;
+    padding: 2px;
+    width: 100px;
+  }
+  .funding-banner__cta {
+    color: $white;
+    text-decoration: none;
+  }
+  .funding-banner__img {
+    height: 83px;
+    border-radius: 5px;
+  }
+
+  .funding-banner__description {
+    text-align: left;
+    margin-left: 12px;
+    --lh: 1.09rem;
+    line-height: var(--lh);
+  }
+
+  .funding-banner__label {
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    @include font-size(14);
+    line-height: 18px;
+  }
+}
 

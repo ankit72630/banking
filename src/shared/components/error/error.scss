@@ -1,1 +1,65 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+.error {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $dark;
+    z-index: 99;
 
+    .error-container {
+        background: $white;
+        width: 355px;
+        margin: auto;
+        height: auto;
+        text-align: center;
+        border-radius: 32px;
+    
+        .error-info {
+            font-family: $SC_Prosper_Sans_Regular;
+            padding: 20px 30px 30px;
+            @include font-size(14);
+            line-height: 20px;
+
+            .error-info__head {
+                 font-family: $SC_Prosper_Sans_Medium;
+                color: $lava;
+                font-weight: 500;
+                @include font-size(16);
+                line-height: 21px;
+            }
+
+            .error-info__desc {
+                margin-top: 12px;
+            }
+        }
+    
+        .error-btn {
+             font-family: $SC_Prosper_Sans_Medium;
+            font-weight: 500;
+            @include font-size(16);
+            line-height: 21px;
+            border: 0.3px solid $gainsboro;
+            background-color: $white;
+            color: $eerie_black;
+            padding: 23px;
+            border-bottom-left-radius: 32px;
+            border-bottom-right-radius: 32px;
+            cursor: pointer;
+
+            a {
+                text-decoration: none;
+                color: $eerie_black;
+            }
+        }
+    
+        .waring-icon {
+            width: 51px;
+            height: 50px;
+            margin: 35px auto 0;   
+        }
+    }
+}

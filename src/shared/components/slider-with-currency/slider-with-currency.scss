@@ -1,1 +1,139 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+
+.slider-with-currency {
+    .slider__header {
+        position: relative;
+        padding-right: 20px;
+        .info-tooltip {
+            &:before {
+                content: "";
+                background-color: transparent;
+                @include background(
+                    "../../../assets/_images/blue-ques.png",
+                    no-repeat,
+                    100%,
+                    inline-block,
+                    absolute,
+                    0,
+                    50%
+                );
+                @include dimention(16px, 16px);
+                transform: translateY(-50%)
+            }
+        }        
+        label {
+            @include font-size(14);
+            display: block;
+            margin-bottom: 10px;
+            border: 0;
+            padding: 0;
+            height: auto;
+            background: transparent;
+        }
+    }
+    .loan-container {
+        .slider {
+           .slider-value{
+               margin-right: 0 !important;
+           } 
+        }
+        .max-eligible-amoun {
+            margin-top: 0 !important;
+        }
+    }
+    .slider-container {
+        color: $dark_charcoal;
+        border: solid 1px $medium_gray;
+        border-radius: 11px;
+        padding: 15px 15px;
+
+        .slider {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 15px;
+            .slider-currency {
+                @include font-size(20);
+                float: left;
+                padding-left: 10px;
+            }
+            .slider-value {
+                float: right;
+                @include font-size(44);
+                padding-right: 5px;
+                color: $medium_electric_blue;
+                margin-right: 10px;
+                line-height: 46px;
+                //border-bottom: 1px dotted;
+                .loan-value {
+                    @include font-size(44);
+                    // margin-right: 10px;
+                    line-height: 46px;
+                    // border-bottom: 1px dotted;
+                    input {
+                        width: calc(100%);
+                        height: 42px;
+                        font-size: 38px;
+                        text-align: right;
+                        border: none;
+                        text-decoration: underline $celtic_blue;
+                        text-decoration-thickness: 1px;
+                        text-underline-offset: 6px;
+                        outline: none;
+                        color: inherit;
+                        padding: 0;
+                        background-color: inherit;
+
+                        &.error {
+                            text-decoration: underline $lava;
+                            text-decoration-thickness: 1px;
+                            color: $lava;
+                        }
+                    }
+                }
+            }
+        }
+        .max-eligible-amoun {
+            display: flex;
+            margin-top: 20px;
+            margin-left: 10px;
+            justify-content: space-between;
+
+            .min-eligible-amount {
+                float: left;
+                font-size: 0.875rem;
+            }
+            .max-eligible-amount {
+                float: right;
+                font-size: 0.875rem;
+                font-weight: 400;
+                color: $dark;
+                font-family: $SC_Prosper_Sans_Regular;
+                span {
+                    font-weight: 500;
+                    font-family: $SC_Prosper_Sans_Medium;
+                }
+            }
+        }
+    }
+    .rc-slider-container {
+        .rc-slider {
+            .rc-slider-track {
+                background-color: $celtic_blue;
+            }
+            .rc-slider-handle {
+                width: 30px;
+                height: 30px;
+                opacity: 1;
+                box-shadow: 0px 1px 3px 0.5px rgba(0, 0, 0, 0.5) inset;
+                border: 2px solid $celtic_blue;
+                margin-top: -8px;
+                top: 0;
+            }
+            .rc-slider-rail {
+                background-color: $pale_cornflower_blue;
+            }
+        }
+    }
+}
 

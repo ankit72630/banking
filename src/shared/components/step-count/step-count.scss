@@ -1,1 +1,13 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+
+.steps-counter {
+    text-align: right;
+    margin: 0;
+    @include font-size(12);
+    line-height: 19px;
+    margin-left: 10px;
+    letter-spacing: 0.6px;
+
+}
 

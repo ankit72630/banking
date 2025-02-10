@@ -1,1 +1,50 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+
+.cards {
+  .slick-track {
+    margin: 0;
+    .card {
+      position: relative;
+      margin: auto;
+      margin-bottom: 10px;
+      margin-left: 10px;
+
+      .card-img {
+        width: 380px;
+      }
+      .card-img-1 {
+        content: url("../../../assets/_images/Card_Blue.png") !important;
+      }
+
+      .card-img-2 {
+        content: url("../../../assets/_images/Card_Dark_Blue.png") !important;
+      }
+
+      .card-img-3 {
+        content: url("../../../assets/_images/Card_Blue.png") !important;
+      }
+
+      .name-on-card {
+        position: absolute;
+        left: 14px;
+        bottom: 11px;
+        color: $light_white;
+        @include font-size(15);
+      }
+    }
+  }
+}
+@media only screen and (max-width: 767px) {
+  .cards {
+    .slick-track {
+      margin: auto;
+      .card {
+        .card-img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
 

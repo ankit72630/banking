@@ -1,1 +1,12 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+.logo {
+    @include background("../../../assets/_images/application-logo.png", no-repeat, "", "", "", "", "");
+    @include dimention(140px, 55px);
+    background-position: center;
+    margin: auto 0;
+    padding: 0 20px;
+    margin-right: 20px;
+    border-right: 1px solid $gainsboro;
+}
 

@@ -1,1 +1,46 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+
+.button-group {
+    color: $dark_charcoal;
+    label {
+        @include font-size(14);
+        display: block;
+        margin-bottom: 20px;
+    }
+    .buttons{
+        display: flex;
+        min-width: 100%;
+        overflow: auto;
+        padding-bottom: 10px;
+        .tenure-button{
+            padding: 15px;
+            margin: 5px;
+            width: 100%;
+            border: 2px solid lightgrey;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .active {
+            border: 0;
+            position: relative;
+            &::before{
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: 8px;
+                padding: 2px;
+                background: linear-gradient(45deg,$blue_dress,$yellow_green);
+                -webkit-mask: linear-gradient($white 0 0) content-box, linear-gradient($white 0 0);
+                -webkit-mask-composite: xor;
+            }
+        }
+        &::-webkit-scrollbar {
+            height: 3px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $cloud;
+        }
+    }
+}
 

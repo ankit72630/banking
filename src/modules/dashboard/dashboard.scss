@@ -1,1 +1,80 @@
 
+@import "../../utils/styles/mixins.scss";
+@import "../../utils/styles/variables.scss";
+
+.app {
+    max-width: 800px;
+    margin: auto;
+    margin-bottom: 97px;
+    box-shadow:
+        0 9px 0px 0px $app_background,
+        0 -9px 0px 0px $app_background,
+        12px 0 15px -4px rgba(0, 0, 0, 0.1),
+        -12px 0 15px -4px rgba(0, 0, 0, 0.1);
+
+    .app__body {
+        padding: 35px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        &::-webkit-scrollbar {
+            width: 3px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $cloud;
+        }
+        .wrapper {
+            display: flex;
+            justify-content: space-between;
+
+            > div {
+                &:first-child {
+                    max-width: 400px;
+                    width: 100%;
+                }
+                &:last-child {
+                    position: relative;
+                    max-width: 230px;
+                }
+            }
+        }  
+    }
+    .app__header {
+        position: fixed;
+        z-index: 99;
+        width: 100%;
+        background: $white;
+        top: 0;
+        max-width: 800px;
+        box-shadow:
+            0 0px 0px 0px $app_background,
+            0 -9px 0px 0px $app_background,
+            12px 0 15px -4px rgba(0, 0, 0, 0.1),
+            -12px 0 15px -4px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .app {
+        margin-bottom: auto;
+        box-shadow: none;
+        .app__header {
+            box-shadow: none;
+        }
+        .app__body {
+            padding: 20px;
+
+            .wrapper {
+                > div {
+                    &:first-child {
+                        max-width: 100%;
+                    }
+                    &:last-child {
+                        display: none;
+                    }
+                }
+            }
+            
+        }
+    }
+}

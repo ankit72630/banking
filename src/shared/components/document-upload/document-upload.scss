@@ -1,1 +1,249 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
 
+.document-upload {
+  margin-bottom: 30px;
+  .document-upload__doc-type {
+    p {
+      &.document-upload__doc-type__header {
+        @include font-size(14);
+        font-weight: 500;
+      }
+    }
+  }
+  .document-upload__doc-type__upload {
+    display: flex;
+    padding-bottom: 20px;
+    .document-upload__doc-type__upload-btn {
+      padding: 10px 20px 10px 42px;
+      border-radius: 20px;
+      border: 1px solid $celtic_blue;
+      background: $celtic_blue;
+      color: $app_background;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "SC Prosper Sans Medium";
+      position: relative;
+      &:before {
+        content: "";
+        background-color: transparent;
+        @include background(
+            "../../../assets/_images/upload-white.png",
+            no-repeat,
+            100%,
+            inline-block,
+            absolute,
+            "",
+            ""
+        );
+        @include dimention(16px, 16px);
+        left: 20px;
+    }
+    }
+  }
+  .document-upload__file-upload {
+    background-color: $white;
+    margin-bottom: 1.5em;
+    .document-upload__file-upload__hide-upload {
+      display: none;
+    }
+    .document-upload__file-upload__upload-section {
+      display: flex;
+      padding: 15px 0;  
+      border: 1px solid $gray-disabled;
+      border-radius: 6px;
+      margin-bottom: 10px;
+
+      &.REJECTED, &.UPLOADING {
+        .documentavatar {
+          > span {
+            @include background("../../../assets/_images/doc-progress.png", no-repeat, 100%, inline-block, static, 0, 0);
+            @include dimention(24px, 24px);
+          }
+        }
+      }
+
+      &.Accepted {
+        span {
+          color: $spanish_green;
+        }
+        color: $spanish_green;
+        .document-description--progress-status {
+          color: $spanish_green;
+          @include font-size(12);
+        }
+        .documentavatar {
+          .pdf-without-pagination {
+            .react-pdf__Document {
+              canvas {
+                height: 100px !important;
+                width: auto !important;
+              }
+            }
+          }
+          img {
+            max-width: 100%;
+            cursor: pointer;
+          }
+          > span {
+            @include background(
+              "../../../assets/_images/document-success-icon.png",
+              no-repeat,
+              100%,
+              inline-block,
+              static,
+              0,
+              0
+            );
+            @include dimention(30px, 30px);
+          }
+        }
+        .document-description--progress-bar__ {
+          display: none;
+        }
+        .upload-inprogress {
+          @include background(
+            "../../../assets/_images/upload-inprogress.png",
+            no-repeat,
+            100%,
+            inline-block,
+            static,
+            0,
+            0
+          );
+          @include dimention(30px, 30px);
+        }
+      }
+      .documentavatar {
+        width: 15%;
+        padding: 0 20px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        > span {
+          @include background("../../../assets/_images/file.png", no-repeat, 100%, inline-block, static, 0, 0);
+          @include dimention(24px, 24px);
+        }
+
+        .documentavatar--pfdPreview {
+          .document-completion {
+            @include background("../../../assets/_images/document-success-icon.png", no-repeat, 100%, inline-block, static, 0, 0);
+          @include dimention(24px, 24px);
+          }
+        }
+      }
+      .document-details {
+        width: 80%;
+        padding-right: 20px;
+        .document-description {
+          @include font-size(12);
+          color: $raven;
+        }
+        .document-title {
+          display: block;
+          @include font-size(16);
+        }
+      }
+      .upload-icon {
+        width: 20%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-left: 1px solid $gray-disabled;
+        > span {
+          @include background("../../../assets/_images/Upload.png", no-repeat, 100%, inline-block, static, 0, 0);
+          @include dimention(24px, 24px);
+          &.upload-icon--success {
+            @include background("../../../assets/_images/delete.png", no-repeat, 100%, inline-block, static, 0, 0);
+            @include dimention(24px, 24px);
+          }
+          &.upload-icon--failure {
+            @include background("../../../assets/_images/delete.png", no-repeat, 100%, inline-block, static, 0, 0);
+            @include dimention(25px, 25px);
+          }
+          &.upload-icon--progress {
+            @include background("../../../assets/_images/cross.png", no-repeat, 100%, inline-block, static, 0, 0);
+            @include dimention(25px, 25px);
+          }
+        }
+      }
+      .document-description--progress-bar__ {
+        display: inline-block;
+        height: 0.3em;
+        background: $celtic_blue;
+        border-radius: 10px;
+        &.document-rejected {
+          background: $lava;
+        }
+      }
+      .document-description--progress-status {
+        size: 12px;
+        color: $dim_gray;
+        display: block;
+      }
+    }
+  }
+}
+
+.document-upload__footer-notes {
+  margin-top: 3em;
+  background: $anti_flash_white;
+  color: $eerie_black;
+  padding: 11px;
+  border: 1px solid $gainsboro;
+  @include font-size(12);
+  .signature-doc-notes{
+    position: relative;
+    padding-left: 10px;
+    span{
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+.document-pop-up {
+  @include pop-up(335px, auto, $white);
+  text-align: center;
+  margin: auto;
+}
+
+// Preview pop-up
+.popup-container {
+  .document_preview-pop-up {
+    width: 80%;
+    margin: auto;
+    img {
+      width: 100%;
+    }
+    &.popup {
+      .popup-container1 {
+        width: auto;
+        border-radius: 0;
+        > #pdf {
+          width: auto;
+          height: 95vh;
+          overflow-y: scroll;
+          border-radius: 5px;
+        }
+        .react-pdf__Document {
+          overflow-y: scroll;
+          height: 95vh;
+        }
+      }
+    }
+  }
+  .document_preview-pop-up__close-btn {
+    color: $white;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    @include font-size(26);
+    cursor: pointer;
+  }
+}

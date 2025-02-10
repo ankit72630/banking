@@ -1,1 +1,79 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+.toggle__content {
+  .toggle__content__inner {
+    display: flex;
+    align-items: center;
+    background: $white;
+    padding: 10px 15px;
+    width: calc(100% - 30px);
+    position: relative;
+    border: 1px solid $gray-disabled;
+    border-radius: 6px;
+
+    .toggle__desc {
+      border-radius: 6px;
+      margin-right: 10px;
+      cursor: pointer;
+      @include font-size(14);
+      width: 90%;
+    }
+
+    .toggle__button {
+      position: relative;
+      display: inline-block;
+      width: 42px;
+      height: 25px;
+
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        &:checked {
+          + .toggle__slider {
+            background-color: $celtic_blue;
+            &:before {
+              -webkit-transform: translateX(17px);
+              -ms-transform: translateX(17px);
+              transform: translateX(17px);
+            }
+          }
+        }
+      }
+      .toggle__slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $dark_charcoal;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+        border-radius: 34px;
+
+        &:before {
+          position: absolute;
+          content: "";
+          height: 22px;
+          width: 22px;
+          left: 1.5px;
+          bottom: 1.5px;
+          background-color: $white;
+          -webkit-transition: 0.4s;
+          transition: 0.4s;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+  .tool-tip__icon{
+    padding: 15px;
+    .tool-tip{
+        @include background('../../../assets/_images/Question.png',no-repeat,100%,inline-block,'','','');
+        @include dimention(25px, 25px);
+    }
+  
+}
+}
 

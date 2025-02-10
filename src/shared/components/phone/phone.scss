@@ -1,1 +1,77 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+.phone {
+    label {
+        display: block;
+        margin-bottom: 10px;
+        @include font-size(14);
+    }
+
+    input {
+        font-family: $SC_Prosper_Sans_Medium;
+        @include font-size(16);
+        border-radius: 6px;
+        width: calc(100% - 20px);
+        height: 42px;
+        outline: none;
+        border: none;
+        padding: 0 10px;
+        &:disabled {
+            height: auto;
+            background: transparent;
+            color: $eerie_black;
+            -webkit-text-fill-color: $eerie_black;
+            opacity: 1;
+            padding: 0 10px 0 5px;
+        }
+    }
+    div {
+        display: flex;
+        align-items: center;
+
+        &.phone__container {
+            border-radius: 6px;
+            width: calc(100% - 22px);
+            height: 42px;
+            outline: none;
+            padding: 0 10px;
+            border: 1px solid #cccbcb;
+            background: $white;
+            &:has(+ .error-msg) {
+                border: 1px solid $lava;
+            }
+            &:active,
+            &:focus-within {
+                border: 1px solid $celtic_blue;
+            }
+        }
+        &.disabled {
+            padding: 0;
+            height: auto;
+            background: transparent;
+            color: #191919;
+            -webkit-text-fill-color: #191919;
+            opacity: 1;
+            border: 0;
+
+            .vertical-line {
+                display: none;
+            }
+        }
+        .phone__flag {
+            background-image: url("../../../assets/_images/flag.png");
+            background-repeat: no-repeat;
+            width: 36px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .vertical-line {
+            border-right: 1px solid #cccbcb;
+            height: 15px;
+            margin-top: 27px;
+            margin-left: 10px;
+        }
+    }
+}
 

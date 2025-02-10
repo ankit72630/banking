@@ -1,1 +1,240 @@
+@import "../../../utils/styles/variables.scss";
+@import "../../../utils/styles/mixins.scss";
+.pending-doc{
+&.app {
+  padding: 50px 30px 30px;
+  max-width: 1156px;
+  display: flex;
 
+  .app__header-resume {
+    width: 30%;
+    background: $white_smoke;
+    z-index: 9;
+    display: block;
+
+    .left-menu{
+      .container{
+        .logo-background{
+          display: flex;
+          justify-content: center;
+
+          .container__logo{
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .app__body {
+    padding: 0;
+    width: 65%;
+    .pending__resume-header{
+      position: relative;
+      .resume__header-name{
+        font-weight: 500;
+        @include font-size(18);
+        line-height: 24px;
+        color: $raven;
+      }
+      .resume__header-text{
+        font-weight: 400;
+        @include font-size(32);
+        line-height: 43px;
+        margin: 15px 0 0;
+      }
+      .close {
+        @include background("../../../assets/_images/mask.png", no-repeat, 100%, inline-block, absolute, 0, 0);
+        @include dimention(24px, 24px);
+      }
+    }
+    .app__list {
+      max-width: 540px;
+      padding: 0px;
+      margin: 50px 0 0;      
+      font-family: "SC Prosper Sans Regular";
+      .app-header{
+        font-weight: 500;
+        @include font-size(14);
+        line-height: 19px;
+        padding: 20px;
+      }
+      .application-list__info{
+        .application-list__name{
+          font-weight: 500;
+          @include font-size(18);
+          line-height: 24px;
+        }
+        .application-list__details{
+          font-weight: 400;
+          @include font-size(12);
+          line-height: 16px;
+          .application-list__expdate{
+            .expire-icon {
+              @include background("../../../assets/_images/alarm-clock.png", no-repeat, 100%, inline-block, "", "", "");
+              @include dimention(15px, 15px);
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+  }
+
+    &.hidden {
+      visibility: hidden;
+    }
+
+    &.visibility {
+      visibility: visible;
+    }
+
+    .app__left {
+      position: fixed;
+    }
+
+    .app__right {
+      //max-width: 540px;
+      width: 100%;
+      padding-left: 20px;
+      margin-left: 200px;
+    }
+    &.hidden {
+      .ngx-slider {
+        span {
+          visibility: hidden !important;
+          transition: none;
+        }
+      }
+    }
+
+    &.visibility {
+      .ngx-slider {
+        span {
+          visibility: visible;
+        }
+      }
+    }
+
+    .app__eligible-flag {
+      margin-bottom: 20px;
+      @include font-size(14);
+    }
+
+    .app__total {
+      padding: 20px;
+      background: $white;
+      color: $raven;
+      font-family: "SC Prosper Sans Light";
+      @include font-size(12);
+
+      a {
+        color: $celtic_blue;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .pending-doc {
+    &.app {
+      padding: 0;
+      .app__header-resume {
+        display: none;
+        > div {
+          &:first-child {
+            display: none;
+          }
+          &:nth-child(2) {
+            width: 100%;
+            margin-left: 0;
+          }
+        }
+      }
+
+      .app__body {
+        width: 100%;
+        margin-left: 0;
+        .pending__resume-header{
+          padding: 30px 15px 47px;
+          background: $white;
+          .resume__header-text{
+            @include font-size(24);
+          }
+          .close{
+            right: 15px;
+            top: 30px;
+          }
+        }
+        .app__list{
+          margin: 30px 0 0;
+          padding: 0 15px;
+        }
+      }
+    }
+  }
+}
+
+.application-list {
+  background: $white;
+  padding: 15px;
+  display: flex;
+  margin-top: 15px;
+
+  .application-list__btn {
+    width: auto;
+    background: $accent_blue;
+    color: $white;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    padding: 6px 30px;
+    border-radius: 27px;
+    cursor: pointer;
+    &:hover {
+      background: $royal_blue;
+    }
+  }
+
+  > div {
+    align-self: center;
+
+    &:first-child {
+      width: 90%;
+      .application-list__info{
+        font-family: "SC Prosper Sans Regular";
+      .application-list__name {
+        padding-bottom: 5px;
+        font-size: larger;
+      }
+
+      .application-list__details {
+        align-items: center;       
+
+        .application-list__ref {
+          margin-right: 20px;
+        }
+
+        .application-list__expdate {
+          font-size: 12px;
+          align-items: center;
+        }
+
+      }
+    }
+    }
+
+    
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .application-list__ref {
+    margin-right: 0;
+  }
+  .application-list__details,
+  .application-list__expdate {
+    display: block !important;
+  }
+}

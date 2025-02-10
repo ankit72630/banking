@@ -1,1 +1,87 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+.text {
+    color: $dark_charcoal;
+    label {
+        @include font-size(14);
+        display: block;
+        margin-bottom: 10px;
+    }
+    .text__count {
+        position: relative;
+
+        &.disabled {
+            pointer-events: none;
+            background: transparent;
+            color: #191919;
+            min-height: auto;
+            padding: 0;
+            -webkit-text-fill-color: #191919;
+            opacity: 1;
+
+            input {
+                background: transparent;
+                border: 0;
+                padding: 0;
+                height: auto;
+            }
+        }
+
+        &:has(+ .error-msg) {
+            border: 1px solid $lava;
+        }
+
+        .text__count__num {
+            @include font-size(16);
+            color: $dim_gray;
+            width: 50px;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .text__remove__button {
+            @include background(
+                "../../../assets/_images/cross-black.png",
+                no-repeat,
+                100%,
+                inline-block,
+                absolute,
+                15px,
+                50%
+            );
+            @include dimention(16px, 16px);
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        input {
+            font-family: $SC_Prosper_Sans_Medium;
+            font-size: 16px;
+            border-radius: 6px;
+            width: calc(100% - 22px);
+            height: 42px;
+            outline: none;
+            padding: 0 10px;
+            border: 1px solid $gray-disabled;
+
+            &:disabled {
+                padding: 0;
+                height: auto;
+                background: transparent;
+                color: $eerie_black;
+                -webkit-text-fill-color: $eerie_black;
+                opacity: 1;
+                border: 0;
+            }
+            &:active,
+            &:focus {
+                border: 1px solid $celtic_blue;
+            }
+            &:has(+ .error-msg) {
+                border: 1px solid $lava;
+            }
+        }
+    }
+}
 

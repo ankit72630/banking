@@ -1,1 +1,145 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
 
+.form {
+    .field__group {
+        label {
+            @include font-size(24);
+            font-weight: 400;
+        }
+        .review__content {
+            @include font-size(14);
+            font-weight: 400;
+            color: $dim_gray;
+            line-height: 20px;
+            margin-top: 0;
+            label.review__content--header {
+                @include font-size(24);
+                font-weight: 400;
+                margin-bottom: 15px;
+                line-height: normal;
+                p {
+                    margin: 0;
+                }
+            }
+            label {
+                @include font-size(16);
+                line-height: 21px;
+                font-weight: 400;
+                margin-top: 10px;
+                margin-bottom: 0;
+            }
+            .review__content--body {
+                margin-top: 30px;
+                margin-bottom: 30px;
+                ol {
+                    padding-left: 30px;
+                }
+                p {
+                    margin: 0;
+                }
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        &:has(.review__content) {
+            margin-bottom: 0px;
+        }
+    }
+    .review__checkbox {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        color: $davys_gray;
+        @include font-size(14);
+        line-height: 20px;
+        margin-top: 20px;
+        position: relative;
+        padding: 12px 12px 12px 38px;
+        background: $white;
+        border: 1px solid $gray-disabled;
+        border-radius: 6px;
+
+        a {
+            color: $celtic_blue;
+            text-decoration: none;
+        }
+        label {
+            @include font-size(16);
+            color: $dark;
+            line-height: 20px;
+        }
+        .review__check__body {
+            cursor: pointer;
+            .review__checkbox__input {
+                input {
+                    position: absolute;
+                    left: 12px;
+                    top: 12px;
+                    width: 16px;
+                    height: 16px;
+                    margin: 0;
+                }
+            }
+        }
+    }
+    .review__ccpl__content {
+        color: $davys_gray;
+        @include font-size(14);
+        line-height: 20px;
+        margin-top: 30px;
+        a {
+            color: $celtic_blue;
+            text-decoration: none;
+        }
+        .review__content--header {
+            @include font-size(16);
+            font-weight: 400;
+            margin-bottom: 15px;
+            label {
+                color: $dark;
+                line-height: normal;
+                p {
+                    margin: 0;
+                }
+            }
+        }
+        .review__top__content {
+            margin-top: 10px;
+        }
+        .review__title {
+            @include font-size(24);
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: $dark;
+            line-height: normal;
+            display: flex;
+            flex-wrap: wrap;
+            .review__title__label {
+                p {
+                    margin: 0;
+                }
+            }
+        }
+        .tool-tip__icon {
+            margin-left: 20px;
+            .tool-tip {
+                @include background("../../../assets/_images/Question.png", no-repeat, 100%, inline-block, "", "", "");
+                @include dimention(16px, 16px);
+            }
+        }
+    }
+}
+.field__group:has(.review__content) {
+    margin-bottom: 0px;
+}
+@media only screen and (max-width: 767px) {
+    .form {
+        .field__group {
+            .review__content {
+                margin-top: 30px;
+            }
+        }
+    }
+}

@@ -1,1 +1,110 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
 
+.form {
+    > div:nth-last-child(2) {
+        .field__group {
+            margin-bottom: 0;
+        }        
+    }
+    
+    .field__group {
+        margin-bottom: 30px;
+
+        >div {
+            margin-top: 30px;
+
+            label {
+                display: block;
+                @include font-size(14);
+                margin-bottom: 6px;
+                line-height: 19px;
+                color: $eerie_black;
+            }
+        }
+    }
+
+    .field__show-more {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .field__group>.stage-header {
+        padding: 5px 10px;
+        @include font-size(14);
+        border-bottom: 0;
+        color: $eerie_black;
+        position: relative;
+        margin-top: 30px;     
+
+        &:first-child {
+            margin-top: 0;
+        }
+        &:before {
+            content: "";
+            background-color: transparent;
+            @include background(
+                "../../../assets/_images/stage-bar.png",
+                no-repeat,
+                100%,
+                inline-block,
+                absolute,
+                "",
+                4px
+            );
+            @include dimention(4px, 30px);
+            left: 0;
+        }
+    }
+    .stage-header + div{
+        margin-top: 20px;
+    }
+
+    .error-msg {
+        color: $lava;
+        margin-top: 10px;
+        display:block;
+        position: relative;
+        padding: 0 20px;
+        font-family: $SC_Prosper_Sans_Regular;
+        &:before {
+            content: "";
+            background-color: transparent;
+            @include background(
+                "../../../assets/_images/Info-red.png",
+                no-repeat,
+                100%,
+                inline-block,
+                absolute,
+                "",
+                0
+            );
+            @include dimention(18px, 18px);
+            left: 0px;
+        }
+    }
+}
+
+.app__footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    max-width: 800px;
+    margin: auto;
+    z-index: 9;
+    box-shadow:
+            0 9px 0px 0px $app_background,
+            0 0px 0px 0px $app_background,
+            12px 0 15px -4px rgba(0, 0, 0, 0.1),
+            -12px 0 15px -4px rgba(0, 0, 0, 0.1);
+
+    &.hidden {
+        visibility: hidden;
+    }
+
+    &.visibility {
+        visibility: visible;
+    }
+}

@@ -1,1 +1,42 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+.alias__buttton {
+    display: flex;
+    justify-content: center;
+    .alias__plus {
+        position: relative;
+        &:before {
+            content: "";
+            background-color: transparent;
+            @include background(
+                "../../../assets/_images/blue-plus.svg",
+                no-repeat,
+                100%,
+                inline-block,
+                absolute,
+                20px,
+                50%
+            );
+            transform: translateY(-50%);
+            @include dimention(16px, 16px);
+        }
+        .button {
+            font-family: $SC_Prosper_Sans_Medium;
+            padding: 12px 42px 12px 20px;
+            border-radius: 27px;
+            justify-content: center;
+            color: $celtic_blue;
+            @include font-size(14);
+            font-weight: 500;
+            line-height: normal;
+            cursor: pointer;
+            border: 1px solid;
+            background: transparent;
+        }
+    }
+
+    .hide-btn {
+        display: none;
+    }
+}
 

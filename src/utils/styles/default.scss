@@ -1,1 +1,219 @@
+@import "../../utils/styles/mixins.scss";
+@import "../../utils/styles/variables.scss";
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: $dark; // prevent tap highlight color / shadow
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: "SC Prosper Sans Medium", serif, Helvetica, Arial, sans-serif !important;
+  vertical-align: baseline;
+}
+html,
+body {
+  -webkit-text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
+  font-variant: tabular-nums;
+  font-feature-settings: "tnum";
+  background: $white-smoke;
+  color: $eerie_black;
+  line-height: 1;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  text-decoration: none;
+  color: $bluetext;
+  outline: none;
+}
+// // reset styles
+input,
+textarea {
+  padding: 0;
+  -webkit-user-select: auto !important;
+  -moz-user-select: auto !important;
+  -ms-user-select: auto !important;
+}
+input,
+textarea,
+select {
+  -webkit-appearance: none;
+}
+:focus {
+  outline: none;
+}
+input::selection,
+textarea::selection,
+::selection {
+  color: $eerie_black;
+}
+
+// placeholder
+.ui.selection.dropdown {
+  @include placeholder(1);
+}
+textarea {
+  @include placeholder(0.5);
+}
+input {
+  height: 45px;
+  font-weight: 400;
+  @include font-size(15);
+  @include placeholder(1);
+}
+b,
+strong {
+  font-weight: 500;
+}
+p {
+  font-weight: 300;
+}
+.clearfix {
+  @include clearfix;
+}
+.pull-right {
+  float: right !important;
+}
+.pull-left {
+  float: left !important;
+}
+.hide,
+.hidden {
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
+.invisible {
+  visibility: hidden;
+}
+.affix {
+  position: fixed;
+}
+i.icon {
+  margin: 0;
+}
+.align-middle {
+  margin: 0 auto;
+  text-align: center;
+}
 

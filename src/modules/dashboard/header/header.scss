@@ -1,1 +1,110 @@
+@import "../../../utils/styles/mixins.scss";
+@import "../../../utils/styles/variables.scss";
+
+.header {
+    position: relative;
+    z-index: 10;
+
+    .header__product-info,
+    .header__stage-info {
+        padding: 20px;
+    }
+    .header__product-info {
+        display: flex;
+        align-items: center;
+
+        .header__product-name {
+            justify-content: left;
+            width: calc(100% - 26px);
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            @include font-size(16);
+            line-height: 21px;
+            color: $dark;
+        }
+        .header__save-exit {
+            display: inline-flex;
+            align-items: center;
+        }
+    }
+
+    .header__stage-info {
+        background: linear-gradient(180deg, #0060c6 0%, #004186 100%);
+        min-height: 81px;
+        color: $white;
+        
+        .app_ref {
+            font-family: $SC_Prosper_Sans_Regular;
+            position: absolute;
+            bottom: 5px;
+            @include font-size(10);
+        }
+
+        .header__stage-h3 {
+            font-family: "SC Prosper Sans Regular";
+            font-weight: 400;
+            @include font-size(24);
+            line-height: 36px;
+        }
+
+        .header__waves {
+            position: absolute;
+            mask-image: url("../../../assets/_images/waves.svg");
+            -webkit-mask-image: url("../../../assets/_images/waves.svg");
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            top: 54px;
+            right: 0;
+            width: 10%;
+            height: 121px;
+            background: #56f36f;
+            opacity: 0.6;
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+        }
+
+        .header__notification {
+            font-family: $SC_Prosper_Sans_Light;
+            display: flex;
+            font-weight: 400;
+            color: #56f36f;
+            margin-top: 10px;
+            @include font-size(12);
+
+            .header__clock {
+                background-image: url("../../../assets/_images/timer.png");
+                width: 16px;
+                height: 16px;
+                background-repeat: no-repeat;
+                margin-right: 5px;
+            }
+        }
+    }
+}
+.header__border {
+    background: linear-gradient(90deg, rgba(78, 155, 242, 1) 0%, rgba(56, 210, 0, 1) 100%);
+    display: block;
+    height: 4px;
+    width: 100%;
+}
+.pending__resume-header{
+    font-family: "SC Prosper Sans Regular";
+    
+    .resume__header-name{
+        font-size: x-large;
+    }
+    .resume__header-text{
+        font-size: 30px;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .header {
+        .header__product-info {
+            .header__product-name {
+                width: calc(100% - 206px);
+            }
+        }
+    }
+}
 

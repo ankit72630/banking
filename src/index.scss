@@ -1,1 +1,13 @@
+@import "./utils/styles/variables.scss";
+
+body {
+  font-family: $SC_Prosper_Sans_Medium;
+  margin: 0;
+  padding: 0;
+  background: $app_background;
+}
+body:has(.error, .spinner) {
+  overflow:hidden;
+ }
+ 
 
